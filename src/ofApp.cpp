@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    numParticle = 100000; // パーティクルの数
+    numParticle = 512 * 512; // パーティクルの数
     ofSetFrameRate(60);
     ofEnableBlendMode(OF_BLENDMODE_ADD);
 
@@ -97,7 +97,7 @@ void ofApp::setup(){
     gui.add(centerY.set("centerY", ofGetHeight() / 2, 0, ofGetHeight()));
     gui.add(centerZ.set("centerZ", ofGetWidth() / 2, 0, ofGetWidth()));
     
-    glPointSize(3.0);
+    glPointSize(1.0);
 }
 
 //--------------------------------------------------------------
