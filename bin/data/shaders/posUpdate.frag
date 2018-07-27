@@ -16,7 +16,6 @@ out vec4 vFragColor0;
 out vec4 vFragColor1;
 out vec4 vFragColor2;
 
-// ----- 3D -----
 vec3 checkEdges(vec3 p, vec3 v) {
     if(p.x < 0.0 || p.x > 1.0) {
         v.x *= -1;
