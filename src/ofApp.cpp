@@ -86,13 +86,13 @@ void ofApp::setup(){
     }
     
     // 引力を発生する場所を中心に設定
-    attractor = ofVec3f(ofGetWidth() / 2, ofGetHeight() / 2, ofGetWidth() / 2);
+    attractor = ofVec3f(ofGetWidth() / 2, ofGetHeight() / 2, 0);
     
     // GUI
     gui.setup();
     gui.setPosition(20, 20);
     gui.add(strength.set("strength", 0.3, 0.0, 1.0));
-    gui.add(isAttract.setup("Attract", true));
+    gui.add(isAttract.setup("Attract", false));
     gui.add(centerX.set("centerX", ofGetWidth() / 2, 0, ofGetWidth()));
     gui.add(centerY.set("centerY", ofGetHeight() / 2, 0, ofGetHeight()));
     gui.add(centerZ.set("centerZ", ofGetWidth() / 2, 0, ofGetWidth()));
@@ -123,7 +123,6 @@ void ofApp::update(){
 
     // Position PingPong
     posPingPong.dst->begin();
-    posPingPong.dst->activateAllDrawBuffers();
     ofClear(0);
     updatePos.begin();
     updatePos.setUniformTexture("posData", posPingPong.src->getTexture(0), 0); // 位置のテクスチャ
@@ -146,7 +145,6 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     ofEnableDepthTest();
-    ofPushMatrix();
     
     cam.begin();
     
@@ -163,8 +161,6 @@ void ofApp::draw(){
     updateRender.end();
     
     cam.end();
-    
-    ofPopMatrix();
     
     ofDisableDepthTest();
     
@@ -194,7 +190,7 @@ void ofApp::mouseMoved(int x, int y ){
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-    mouseFrag = true;
+    
 }
 
 //--------------------------------------------------------------
@@ -204,7 +200,7 @@ void ofApp::mousePressed(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-    mouseFrag = false;
+    
 }
 
 //--------------------------------------------------------------

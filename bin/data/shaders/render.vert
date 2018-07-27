@@ -10,7 +10,6 @@ in vec4 color;
 uniform sampler2DRect posTex;
 uniform vec2 screen;
 
-// out vec4 vPosition;
 out vec4 vColor;
 out vec2 vTexCoord;
 
@@ -22,7 +21,5 @@ void main() {
     pixPos.z = pixPos.z * screen.x - screen.x / 2;
     
     vTexCoord = texcoord;
-//    vColor = color;
     gl_Position = modelViewProjectionMatrix * pixPos;
-//    gl_PointSize = 1.0f;
 }
